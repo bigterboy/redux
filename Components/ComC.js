@@ -7,17 +7,16 @@
  */
 
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
+import {connect} from 'react-redux';
 
-export default class ComC extends Component {
+class ComC extends Component {
   constructor(props) {
     super(props);
     this.state = {
       color: 'yellow',
     };
   }
-
-
 
   clickC() {
     this.setState({
@@ -34,8 +33,16 @@ export default class ComC extends Component {
           alignItems: 'center',
           height: 50,
           width: 50,
-        }}
-      />
+        }}>
+        <TouchableOpacity onPress={() => this.props.dispatch({type: 'UP'})}>
+          <Text>+</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.dispatch({type: 'DOWN'})}>
+          <Text>-</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
+
+export default connect()(ComC);
