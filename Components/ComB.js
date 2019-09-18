@@ -11,9 +11,6 @@ import {View} from 'react-native';
 import ComC from './ComC';
 
 export default class ComB extends Component {
-  clickB() {
-    this.refs.mrC.clickC();
-  }
   render() {
     return (
       <View
@@ -24,7 +21,7 @@ export default class ComB extends Component {
           height: 100,
           width: 100,
         }}>
-        <ComC ref="mrC" />
+        <ComC />
       </View>
     );
   }

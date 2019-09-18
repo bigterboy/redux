@@ -7,13 +7,15 @@
  */
 
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
+import {connect} from 'react-redux';
 import ComB from './ComB';
+import * as quoteActions from '../Action/quoteActions';
 
-export default class ComA extends Component {
-  clickA() {
-      this.refs.mrB.clickB();
-  }
+class ComA extends Component {
+  // clickA() {
+  //   this.refs.mrB.clickB();
+  // }
   render() {
     return (
       <View
@@ -24,8 +26,34 @@ export default class ComA extends Component {
           height: 150,
           width: 150,
         }}>
-        <ComB ref="mrB"/>
+        <ComB />
+        <TouchableOpacity
+          onPress={
+            () =>
+              //this.props.dispatch({type: 'LOAD_QUOTE'
+              this.props.loadQuote()
+            //this.props.dispatch({type: 'LOAD_QUOTE'})
+          }>
+          <Text>CHANGE</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
+
+// function mapStateToProps(state) {
+//   return {
+//     counter: state.counter,
+//   };
+// }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadQuote: () => dispatch(quoteActions.loadQuote()),
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(ComA);
