@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
-import App from './App';
+import App from './testApp';
 import {name as appName} from './app.json';
 
 //const {createStore} = require('redux');
