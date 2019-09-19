@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
-import App from './testApp';
+import App from './App';
 import {name as appName} from './app.json';
 
 //const {createStore} = require('redux');
@@ -34,7 +34,7 @@ import {Provider} from 'react-redux';
 
 import store from './Store/store';
 
-export default class DemoRedux extends Component {
+export default class   extends Component {
   render() {
     return (
       <Provider store={store}>
